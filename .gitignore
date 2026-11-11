@@ -7,3 +7,11 @@ coverage/
 Profile.pdf
 Mohammadreza_Hashemi_Executive_Resume_EN.docx.pdf
 mohammadreza hashemi english portfo.html
+
+# OpenNext
+.open-next
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
