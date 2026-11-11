@@ -1,4 +1,5 @@
 import Image from "next/image";
+import DigitalTwinChat from "./digital-twin-chat";
 
 const portfolioUrl = "https://mohammadreza-hashemi-en--kzfsu0d.gamma.site/";
 const linkedInUrl = "https://www.linkedin.com/in/mrezahb";
@@ -166,6 +167,7 @@ export default function Home() {
           <a href="#journey">Journey</a>
           <a href="#work">Selected work</a>
           <a href="#media">Videos</a>
+          <a href="#digital-twin">AI twin</a>
         </nav>
         <a className="header-contact" href="mailto:m.reza.hb@gmail.com">
           Let&apos;s connect <Arrow diagonal />
@@ -479,10 +481,12 @@ export default function Home() {
         </div>
       </section>
 
+      <DigitalTwinChat />
+
       <section className="contact section-space" id="contact">
         <div className="section-shell contact-inner">
           <div className="section-marker">
-            <span>05</span> / WHAT&apos;S NEXT
+            <span>06</span> / WHAT&apos;S NEXT
           </div>
           <p className="section-overline">OPEN TO THE RIGHT CONVERSATION</p>
           <h2>

@@ -1069,6 +1069,417 @@ a:focus-visible {
   height: 14px;
 }
 
+.digital-twin {
+  background:
+    radial-gradient(ellipse at 12% 35%, rgba(211, 255, 86, 0.075), transparent 34%),
+    #101411;
+}
+
+.twin-float {
+  position: fixed;
+  z-index: 20;
+  right: clamp(16px, 3vw, 36px);
+  bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  min-height: 62px;
+  padding: 7px 17px 7px 8px;
+  border: 1px solid rgba(211, 255, 86, 0.48);
+  border-radius: 999px;
+  background: rgba(18, 24, 19, 0.94);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.42), 0 0 24px rgba(211, 255, 86, 0.1);
+  color: var(--ink);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.twin-float:hover {
+  transform: translateY(-4px);
+  border-color: var(--lime);
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.48), 0 0 28px rgba(211, 255, 86, 0.2);
+}
+
+.twin-float-orbit {
+  position: relative;
+  display: grid;
+  width: 46px;
+  height: 46px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--lime);
+  color: var(--dark);
+  animation: twin-float-bob 3s ease-in-out infinite;
+}
+
+.twin-float-orbit::before {
+  position: absolute;
+  inset: -5px;
+  border: 1px solid rgba(211, 255, 86, 0.48);
+  border-radius: 50%;
+  content: "";
+  animation: twin-float-ring 2.4s ease-out infinite;
+}
+
+.twin-float-orbit svg {
+  width: 23px;
+  height: 23px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.twin-float-label {
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.twin-float-arrow {
+  margin-left: 1px;
+  color: var(--lime);
+  font-size: 16px;
+  line-height: 1;
+}
+
+@keyframes twin-float-bob {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes twin-float-ring {
+  0% {
+    opacity: 0.65;
+    transform: scale(0.86);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.35);
+  }
+}
+
+.twin-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  margin: 38px 0 42px;
+}
+
+.twin-heading h2 {
+  margin: 18px 0 0;
+  font-size: clamp(42px, 5.2vw, 68px);
+  font-weight: 500;
+  letter-spacing: -0.075em;
+  line-height: 1.04;
+}
+
+.twin-heading h2 span {
+  color: var(--lime);
+}
+
+.twin-heading > p {
+  max-width: 375px;
+  margin: 0 0 5px;
+  color: #a1aaa0;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.twin-card {
+  width: min(820px, 100%);
+  margin-left: auto;
+  border: 1px solid var(--line);
+  background: #171d18;
+}
+
+.twin-card-header {
+  display: flex;
+  min-height: 78px;
+  align-items: center;
+  gap: 13px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.twin-avatar {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgba(211, 255, 86, 0.42);
+  border-radius: 50%;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.twin-avatar span {
+  color: var(--lime);
+}
+
+.twin-identity {
+  display: grid;
+  gap: 4px;
+}
+
+.twin-identity strong {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.twin-identity > span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #9aa39b;
+  font-size: 11px;
+}
+
+.twin-identity i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--lime);
+  box-shadow: 0 0 10px rgba(211, 255, 86, 0.45);
+}
+
+.twin-powered {
+  margin-left: auto;
+  color: #818a80;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+}
+
+.twin-messages {
+  display: flex;
+  min-height: 248px;
+  max-height: 390px;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+  padding: 22px;
+  scrollbar-color: #444d42 transparent;
+  scrollbar-width: thin;
+}
+
+.twin-welcome {
+  display: grid;
+  min-height: 200px;
+  align-content: center;
+  justify-items: center;
+  text-align: center;
+}
+
+.twin-welcome-mark {
+  color: var(--lime);
+  font-size: 26px;
+}
+
+.twin-welcome h3 {
+  margin: 12px 0 6px;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.twin-welcome p {
+  max-width: 405px;
+  margin: 0;
+  color: #a1aaa0;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.twin-message {
+  width: fit-content;
+  max-width: min(80%, 590px);
+  padding: 12px 15px;
+  border: 1px solid var(--line);
+  background: #1d241e;
+  color: #dce2da;
+  font-size: 13px;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.twin-message-user {
+  align-self: flex-end;
+  border-color: rgba(211, 255, 86, 0.32);
+  background: rgba(211, 255, 86, 0.09);
+  color: var(--ink);
+}
+
+.twin-message-assistant {
+  align-self: flex-start;
+}
+
+.twin-typing {
+  display: inline-flex;
+  gap: 4px;
+  margin-right: 9px;
+  vertical-align: middle;
+}
+
+.twin-typing i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--lime);
+  animation: twin-pulse 1s ease-in-out infinite alternate;
+}
+
+.twin-typing i:nth-child(2) {
+  animation-delay: 180ms;
+}
+
+.twin-typing i:nth-child(3) {
+  animation-delay: 360ms;
+}
+
+@keyframes twin-pulse {
+  to {
+    opacity: 0.3;
+    transform: translateY(-3px);
+  }
+}
+
+.twin-starters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 22px 18px;
+}
+
+.twin-starter {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 34px;
+  padding: 0 11px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: #bdc5bb;
+  cursor: pointer;
+  font: inherit;
+  font-size: 11px;
+  transition: border-color 180ms ease, color 180ms ease;
+}
+
+.twin-starter:hover:not(:disabled) {
+  border-color: var(--lime);
+  color: var(--lime);
+}
+
+.twin-starter span {
+  color: var(--lime);
+}
+
+.twin-starter:disabled {
+  cursor: default;
+  opacity: 0.55;
+}
+
+.twin-error {
+  margin: 0 22px 12px;
+  color: #ff9a87;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.twin-form {
+  display: flex;
+  gap: 10px;
+  margin: 0 22px;
+  padding: 8px;
+  border: 1px solid rgba(233, 238, 232, 0.22);
+  background: #101411;
+  transition: border-color 180ms ease;
+}
+
+.twin-form:focus-within {
+  border-color: rgba(211, 255, 86, 0.7);
+}
+
+.twin-form input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+}
+
+.twin-form input::placeholder {
+  color: #7f897e;
+}
+
+.twin-send {
+  display: inline-flex;
+  min-width: 82px;
+  min-height: 39px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 0;
+  background: var(--lime);
+  color: var(--dark);
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  transition: background 180ms ease, opacity 180ms ease;
+}
+
+.twin-send:hover:not(:disabled) {
+  background: #e3ff8f;
+}
+
+.twin-send:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.twin-disclaimer {
+  margin: 12px 22px 19px;
+  color: #7f897e;
+  font-size: 10px;
+  line-height: 1.7;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--lime);
+  outline-offset: 4px;
+}
+
 @media (min-width: 1500px) {
   .hero {
     min-height: 820px;
@@ -1442,6 +1853,106 @@ a:focus-visible {
     font-size: 12px;
   }
 
+  .twin-heading {
+    display: block;
+    margin: 32px 0 30px;
+  }
+
+  .twin-float {
+    right: 15px;
+    bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+    gap: 8px;
+    min-height: 56px;
+    padding: 6px 13px 6px 7px;
+  }
+
+  .twin-float-orbit {
+    width: 42px;
+    height: 42px;
+  }
+
+  .twin-float-label {
+    font-size: 11px;
+  }
+
+  .twin-float-arrow {
+    font-size: 14px;
+  }
+
+  .twin-heading h2 {
+    margin-top: 15px;
+    font-size: clamp(40px, 11vw, 57px);
+  }
+
+  .twin-heading > p {
+    margin-top: 16px;
+    font-size: 12px;
+  }
+
+  .twin-card-header {
+    min-height: 70px;
+    padding: 12px 14px;
+  }
+
+  .twin-powered {
+    max-width: 82px;
+    font-size: 8px;
+    text-align: right;
+  }
+
+  .twin-messages {
+    min-height: 220px;
+    padding: 16px 13px;
+  }
+
+  .twin-welcome h3 {
+    font-size: 15px;
+  }
+
+  .twin-welcome p {
+    font-size: 12px;
+  }
+
+  .twin-message {
+    max-width: 92%;
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+
+  .twin-starters {
+    gap: 7px;
+    padding: 0 13px 15px;
+  }
+
+  .twin-starter {
+    min-height: 34px;
+    padding-inline: 8px;
+    font-size: 10px;
+    text-align: left;
+  }
+
+  .twin-form {
+    gap: 6px;
+    margin-inline: 13px;
+    padding: 6px;
+  }
+
+  .twin-form input {
+    font-size: 12px;
+  }
+
+  .twin-send {
+    min-width: 68px;
+    min-height: 38px;
+    gap: 5px;
+    font-size: 11px;
+  }
+
+  .twin-disclaimer {
+    margin: 10px 13px 14px;
+    font-size: 9px;
+  }
+
   .video-grid {
     grid-template-columns: 1fr;
     gap: 34px;
@@ -1503,5 +2014,10 @@ a:focus-visible {
   *::after {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .twin-float-orbit,
+  .twin-float-orbit::before {
+    animation: none;
   }
 }
